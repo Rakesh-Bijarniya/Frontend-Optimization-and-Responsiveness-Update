@@ -1,74 +1,81 @@
 # Project Documentation
 
-## API Integration
-We use `axios` for API calls in this project. Below is the guide to set up and use API calls effectively:
+•	Browser Developer Tools – Used for testing responsiveness and debugging UI issues.
 
-### Basic API Configuration
-- The core API setup is located in the `services` folder, specifically in the `index.js` file.
-- You can directly use predefined methods (`get`, `post`, `put`, `postFormData`) in your pages by importing them.
+•	Material UI – Used  for responsive design and component styling, including useTheme, useMediaQuery, Dialog, Box, and Paper.
 
-### How to Make API Calls
-1. **GET Request:**
-   ```javascript
-   import { get } from 'path_to_services';
-   
-   get('your_url')
-       .then((res) => {
-           // Handle success
-       })
-       .catch((e) => {
-           // Handle error
-       });
-   ```
+•	Added inline comments within the code to improve readability and understanding.
 
-2. **POST Request:**
-   ```javascript
-   import { post } from 'path_to_services';
-   
-   post('your_url', payload)
-       .then((res) => {
-           // Handle success
-       })
-       .catch((e) => {
-           // Handle error
-       });
-   ```
+•	I've added a cool, moving color effect to the sidebar's background. This is done using a gradient that smoothly shifts colors over time, making the sidebar look more dynamic and visually interesting.
 
-**Note:**
-- Do not include the base URL (e.g., `http://localhost:3000`) in `your_url`.
-- Use only the sub-URL (e.g., `/get/personal-info`). The base URL will automatically be appended from the `BaseUrl.js` file.
+•	The sidebar now slides into view when it appears on the screen. This sliding effect makes the sidebar's entrance and exit smoother and more engaging, enhancing the overall user experience.
 
-### Base URL Management
-- Base URLs are defined in the `BaseUrl.js` file.
-- If modifications are required, duplicate the file, make your changes, and comment out the original for reference.
+•	When we hover over the Topbar, it comes  with a colorful gradient animation
 
-## Page and Component Creation
+•	The page is fully responsive
 
-### Creating Pages
-- Navigate to the `pages` folder.
-- If a folder for your page already exists, use it; otherwise, create a new folder with a relevant name.
-- Inside this folder, create the necessary files for your page.
+##	BreadCrumbs.jsx
+### Optimization Steps:
+•	Used React.memo to prevent unnecessary re-renders.
+•	Destructured theme.breakpoints for cleaner code.
+•	Updated handleClick to navigate to the specific href.
+###Responsiveness:
+•	Default responsiveness achieved via Material UI’s Dialog component.
+•	maxWidth="xs" ensures appropriate sizing on smaller screens.
+•	FilterModal
+Optimization Steps:
+•	Memoized event handlers using useCallback to prevent unnecessary re-renders.
+•	Used .map() for iterating over filter options, reducing repetitive code.
+•	Managed local state efficiently using useState for filter values.
+Responsiveness:
+•	Used theme.breakpoints.down("sm") to determine mobile view.
+•	Font sizes and icon sizes are adjusted based on screen size.
 
-### Creating Components
-- Navigate to the `components` folder.
-- If a folder for your component already exists, use it; otherwise, create a new folder with a relevant name.
+•	MyOrders.jsx
+Optimization Steps:
+•	Utilized useCallback for memoizing event handlers.
+•	Used .map() to iterate over filter options efficiently.
+•	Managed local state with useState for filter values.
+Responsiveness:
+•	Material UI’s Dialog component ensures adaptability.
+•	maxWidth="xs" and fullWidth enhance mobile experience.
+•	CancelModal.jsx
+Optimization Steps:
+•	Used props and functions for controlling modal state.
+•	Implemented error handling for API requests.
+Responsiveness:
+•	Material UI’s Dialog ensures seamless display on various screen sizes.
+•	UploadModal.jsx
+Optimization Steps:
+•	Memoized event handlers using useCallback.
+•	Managed drag-and-drop state with useState.
+•	Used useEffect to initialize files when modal opens.
+Responsiveness:
+•	Dialog component ensures adaptability.
+•	DeliveryInfo.jsx
+Optimization Steps:
+•	Used useMediaQuery and useTheme for layout adjustments.
+•	Managed state through props for flexible integration.
+Responsiveness:
+•	Box and Paper components from Material UI ensure adaptability.
+•	HelpOptions.jsx
+Optimization Steps:
+•	Implemented conditional rendering for different delivery statuses.
+•	Defined reusable styles for consistency.
+Responsiveness:
+•	Material UI’s Box and List components adapt effectively.
 
-## Theme and Styling
-- The project theme is located in the `theme` folder.
-- **Color Palette:**
-  - Primary: Blue
-  - Secondary: Orange
-- Always use the theme palette for colors to maintain consistency.
-
-## Image Management
-- Use the `public` folder for storing images.
-- Inside the `public` folder, navigate to the `assets/images` folder.
-- Create a sub-folder with a relevant name for your image files.
-
-## Form Validation
-- Form validation schemas are located in the `utils/validations` folder.
-- Create new validation schemas if required or use existing ones wherever possible.
-
----
-This documentation ensures consistency and clarity in project development. For further queries, feel free to refer to the respective folders and files mentioned above.
+•	OrderSummary.jsx
+Optimization Steps:
+•	Used useState to manage pricing details.
+•	Implemented useEffect for dynamic pricing updates.
+Responsiveness:
+•	Box and Paper components ensure a smooth experience.
+•	ProductDetail.jsx
+Optimization Steps:
+•	Used useState to manage selected product variant.
+•	Implemented useEffect for dynamic updates.
+•	Created a utility function to round numbers for display consistency.
+Responsiveness:
+•	Box and Paper components ensure adaptability.
 
